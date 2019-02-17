@@ -16,11 +16,11 @@
     <h3 style="color: green" th:if="${currency != null}" th:text="${currency.getCurrency()}"></h3>
     <ul th:if="${currency != null}">
         <h1>kupno: </h1>
-        <!--<li th:each="currencyBuy : ${currency.getRatesForCurrency()}"-->
-          <h1  th:text="${currency.getRatesOfCurrencyDtoList().indexOf(0)}"></h1>
+        <li th:each="currencyBuy : ${currency.getRatesOfCurrencyDtoList()}"
+            th:text="${currencyBuy.getBid()}"></li>
         <h2>sprzedaż: </h2>
-        <!--<li th:each="currencySell : ${currency.getRatesForCurrency()}"-->
-        <h2 th:text="${currency.getRatesOfCurrencyDtoList().indexOf(1)}"></h2>
+        <li th:each="currencyBuy : ${currency.getRatesOfCurrencyDtoList()}"
+            th:text="${currencyBuy.getAsk()}"></li>
     </ul>
 </div>
 </body>

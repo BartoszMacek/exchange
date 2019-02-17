@@ -1,5 +1,6 @@
 package pl.bartoszmacek.exchange.services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -14,14 +15,14 @@ public class ExchangeService {
 
 
 
-    final ExchangeRepository exchangeRepository;
+    final private ExchangeRepository exchangeRepository;
 
     @Autowired
     public ExchangeService(ExchangeRepository exchangeRepository) {
         this.exchangeRepository = exchangeRepository;
     }
 
-    public boolean saveCurrency (ExchangeDto exchangeDto) {
+    private boolean saveCurrency (ExchangeDto exchangeDto) {
         ExchangeEntity exchangeEntity = ExchangeDtoToExchangeEntity.convert( exchangeDto );
         return exchangeRepository.save( exchangeEntity ) != null;
     }
@@ -33,6 +34,8 @@ public class ExchangeService {
         saveCurrency( exchangeDto );
         return exchangeDto;
     }
+
+
 
     @Bean
     public RestTemplate getRestTemplate() {
