@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <form th:action="@{/}" method="post">
+        <input name="currencyName" type="text" placeholder="Podaj nazwę waluty">
+        <button type="submit">Wyślij</button>
+    </form>
+
+    <h1>Kurs dla:</h1>
+
+    <h3 style="color: green" th:if="${currency != null}" th:text="${currency.getCurrency()}"></h3>
+    <ul th:if="${currency != null}">
+        <h1>kupno: </h1>
+        <!--<li th:each="currencyBuy : ${currency.getRatesForCurrency()}"-->
+          <h1  th:text="${currency.getRatesOfCurrencyDtoList().indexOf(0)}"></h1>
+        <h2>sprzedaż: </h2>
+        <!--<li th:each="currencySell : ${currency.getRatesForCurrency()}"-->
+        <h2 th:text="${currency.getRatesOfCurrencyDtoList().indexOf(1)}"></h2>
+    </ul>
+</div>
+</body>
+</html>
