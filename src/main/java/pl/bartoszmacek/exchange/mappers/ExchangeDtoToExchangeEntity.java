@@ -1,8 +1,9 @@
 package pl.bartoszmacek.exchange.mappers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import pl.bartoszmacek.exchange.dtos.ExchangeDto;
 import pl.bartoszmacek.exchange.entities.ExchangeEntity;
+
+import java.time.LocalDateTime;
 
 public class ExchangeDtoToExchangeEntity {
     public static ExchangeEntity convert(ExchangeDto exchangeDto) {
@@ -11,7 +12,7 @@ public class ExchangeDtoToExchangeEntity {
         exchangeEntity.setBidOfCurrency( exchangeDto.getRatesOfCurrencyDtoList().get( 0 ).getBid() );
         exchangeEntity.setAskOfCurrency( exchangeDto.getRatesOfCurrencyDtoList().get( 0 ).getAsk() );
         exchangeEntity.setCurrencyName( exchangeDto.getCurrency() );
-
+        exchangeEntity.setDateOfRequest( LocalDateTime.now() );
 
         return exchangeEntity;
     }
