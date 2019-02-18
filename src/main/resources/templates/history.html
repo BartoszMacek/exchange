@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<link th:href="@{/Bootstrap/css/bootstrap.css}" rel="stylesheet" type="text/css" }>
+<link th:href="@{/style.css}" rel="stylesheet" type="text/css" media="all">
+<script th:src="@{/Bootstrap/js/bootstrap.js}"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li th:each="log : ${logs}" th:text="${log}"> </li>
+
+</ul>
+<a href="/">
+    <button class="btn btn-default btn-sm" type="button">Home Page</button>
+</a>
+
+</body>
+</html>

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<link th:href="@{/Bootstrap/css/bootstrap.css}" rel="stylesheet" type="text/css" }>
+<link th:href="@{/style.css}" rel="stylesheet" type="text/css" media="all">
+<script th:src="@{/Bootstrap/js/bootstrap.js}"></script>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,21 +10,51 @@
 <body>
 <div style="text-align: center;">
     <form th:action="@{/}" method="post">
-        <input name="currencyName" type="text" placeholder="Podaj nazwę waluty">
-        <button type="submit">Wyślij</button>
+        <input name="currencyName" class="form-control form-control-lg" type="text"
+               placeholder="Currency name">
+        <button type="submit">Submit</button>
     </form>
 
-    <h1>Kurs dla:</h1>
 
-    <h3 style="color: green" th:if="${currency != null}" th:text="${currency.getCurrency()}"></h3>
-    <ul th:if="${currency != null}">
-        <h1>kupno: </h1>
-        <li th:each="currencyBuy : ${currency.getRatesOfCurrencyDtoList()}"
-            th:text="${currencyBuy.getBid()}"></li>
-        <h2>sprzedaż: </h2>
-        <li th:each="currencyBuy : ${currency.getRatesOfCurrencyDtoList()}"
-            th:text="${currencyBuy.getAsk()}"></li>
-    </ul>
+    <table class="table table-striped">
+        <tr>
+            <th>Currency</th>
+            <th>Buy</th>
+            <th>Sell</th>
+
+
+        </tr>
+
+        <tr th:if="${currency != null}">
+            <td th:if="${currency != null}" th:text="${currency.getCurrency()}"></td>
+            <td th:each="currencyBuy : ${currency.getRatesOfCurrencyDtoList()}"
+                th:text="${currencyBuy.getBid()}">>
+            </td>
+            <td th:each="currencyBuy : ${currency.getRatesOfCurrencyDtoList()}"
+                th:text="${currencyBuy.getAsk()}"></td>
+        </tr>
+    </table>
+
+    <!--<h3 style="color: green" ></h3>-->
+
+
+    <!--<ul >-->
+    <!--<h2>Kupno: </h2>-->
+    <!--<li -->
+    <!---->
+    <!--</li>-->
+
+    <!--<h2>Sprzedaż: </h2>-->
+    <!--<span th:if="${currency != null}">-->
+    <!--<li th:each="currencyBuy : ${currency.getRatesOfCurrencyDtoList()}"-->
+    <!--&gt;</li>-->
+    <!--</span>-->
+    <!--</ul>-->
+
+
+    <a href="/history">
+        <button class="btn btn-default btn-sm" type="button">History</button>
+    </a>
 </div>
 </body>
 </html>

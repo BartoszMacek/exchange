@@ -10,6 +10,8 @@ import pl.bartoszmacek.exchange.entities.ExchangeEntity;
 import pl.bartoszmacek.exchange.mappers.ExchangeDtoToExchangeEntity;
 import pl.bartoszmacek.exchange.repositories.ExchangeRepository;
 
+import java.util.List;
+
 @Service
 public class ExchangeService {
 
@@ -33,6 +35,10 @@ public class ExchangeService {
                 "http://api.nbp.pl/api/exchangerates/rates/c/" + currencyName+ "?format=json", ExchangeDto.class );
         saveCurrency( exchangeDto );
         return exchangeDto;
+    }
+
+    public List<ExchangeEntity> getExchangeLog () {
+        return (List<ExchangeEntity>) exchangeRepository.findAll();
     }
 
 
