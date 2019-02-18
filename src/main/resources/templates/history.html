@@ -8,10 +8,28 @@
     <title>Title</title>
 </head>
 <body>
-<ul>
-    <li th:each="log : ${logs}" th:text="${log}"> </li>
 
-</ul>
+<table class="table table-striped">
+    <tr>
+        <th>Currency</th>
+        <th>Buy</th>
+        <th>Sell</th>
+
+
+    </tr>
+
+    <tr th:if="${logs != null}" th:each="log : ${logs}">
+        <td th:text="${logs.get(0).getCurrencyName()}"></td>
+        <td th:text="${logs.get(0).getAskOfCurrency()}"></td>
+        <td th:text="${logs.get(0).getBidOfCurrency()}"></td>
+    </tr>
+</table>
+
+
+<!--<ul>-->
+    <!--<li th:each="log : ${logs}" th:text="${log}"> </li>-->
+
+<!--</ul>-->
 <a href="/">
     <button class="btn btn-default btn-sm" type="button">Home Page</button>
 </a>
