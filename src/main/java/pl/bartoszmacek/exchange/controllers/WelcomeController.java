@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.bartoszmacek.exchange.services.ExchangeService;
 
@@ -19,14 +18,29 @@ public class WelcomeController {
         this.exchangeService = exchangeService;
     }
 
-    @GetMapping ("/")
+    @GetMapping("/")
     public String index() {
         return "index";
     }
 
-    @PostMapping ("/")
-    public String index (@RequestParam("currencyName") String currencyName,
-                         Model model) {
+    @PostMapping("/")
+    public String index(@RequestParam("currencyName") String currencyName,
+                        Model model) {
+//        if (currencyName != "USD" ||
+//                currencyName != "AUD" ||
+//                currencyName != "CAD" ||
+//                currencyName != "EUR" ||
+//                currencyName != "HUF" ||
+//                currencyName != "CHF" ||
+//                currencyName != "GBP" ||
+//                currencyName != "JPY" ||
+//                currencyName != "CZK" ||
+//                currencyName != "DKK" ||
+//                currencyName != "NOK" ||
+//                currencyName != "SEK" ||
+//                currencyName != "XDR") {
+//            model.addAttribute( "Warning", "Bad currency name" );
+
         model.addAttribute( "currency", exchangeService.getCurrencyExchange( currencyName ) );
         return "index";
     }

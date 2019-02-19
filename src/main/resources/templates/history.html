@@ -28,7 +28,7 @@
         <td th:text="${log.getDateOfRequest()}"></td>
         <td class="checkbox-inline"><input type="checkbox" value=""></td>
         <td>
-            <button>Delete</button>
+            <a th:href="@{/history/delete/(id=${log.getId()})}" class="btn btn-danger">Delete</a></button>
         </td>
 
     </tr>

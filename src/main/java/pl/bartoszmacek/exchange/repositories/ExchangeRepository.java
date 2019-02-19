@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface ExchangeRepository extends CrudRepository <ExchangeEntity, Integer> {
 
-    List<ExchangeEntity> deleteById (ExchangeEntity exchangeEntity);
+    List<ExchangeEntity> deleteById (int idToDelete);
 
 
 }

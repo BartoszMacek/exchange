@@ -14,6 +14,7 @@ public class ExchangeEntity {
     private @Id @GeneratedValue int id;
     private @Column(name="bid") double bidOfCurrency;
     private @Column(name="ask") double askOfCurrency;
+
     private @Column (name="currency_name")String currencyName;
     private @Column (name = "date_of_request") LocalDateTime dateOfRequest;
 
