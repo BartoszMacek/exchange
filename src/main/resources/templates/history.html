@@ -15,15 +15,22 @@
         <th>Buy</th>
         <th>Sell</th>
         <th>Date of request</th>
+        <th>Select</th>
+        <th>Delete</th>
 
 
     </tr>
 
     <tr th:if="${logs != null}" th:each="log : ${logs}">
-        <td th:text="${logs.get(0).getCurrencyName()}"></td>
-        <td th:text="${logs.get(0).getAskOfCurrency()}"></td>
-        <td th:text="${logs.get(0).getBidOfCurrency()}"></td>
-        <td th:text="${logs.get(0).getDateOfRequest()}"></td>
+        <td th:text="${log.getCurrencyName()}"></td>
+        <td th:text="${log.getBidOfCurrency()}"></td>
+        <td th:text="${log.getAskOfCurrency()}"></td>
+        <td th:text="${log.getDateOfRequest()}"></td>
+        <td class="checkbox-inline"><input type="checkbox" value=""></td>
+        <td>
+            <button>Delete</button>
+        </td>
+
     </tr>
 </table>
 
