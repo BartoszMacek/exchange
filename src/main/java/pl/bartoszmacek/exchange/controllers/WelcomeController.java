@@ -26,21 +26,6 @@ public class WelcomeController {
     @PostMapping("/")
     public String index(@RequestParam("currencyName") String currencyName,
                         Model model) {
-//        if (currencyName != "USD" ||
-//                currencyName != "AUD" ||
-//                currencyName != "CAD" ||
-//                currencyName != "EUR" ||
-//                currencyName != "HUF" ||
-//                currencyName != "CHF" ||
-//                currencyName != "GBP" ||
-//                currencyName != "JPY" ||
-//                currencyName != "CZK" ||
-//                currencyName != "DKK" ||
-//                currencyName != "NOK" ||
-//                currencyName != "SEK" ||
-//                currencyName != "XDR") {
-//            model.addAttribute( "Warning", "Bad currency name" );
-
         model.addAttribute( "currency", exchangeService.getCurrencyExchange( currencyName ) );
         return "index";
     }
