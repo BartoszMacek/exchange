@@ -28,6 +28,19 @@ public class HistoryController {
         exchangeService.getExchangeListWithoutElement( idToDelete );
 
         return "redirect:/history";
+    }
 
+    @RequestMapping(value = "/history/checkDelete" , method = RequestMethod.POST)
+    public String deleteCheckedValues(@RequestParam(name = "", required = false) boolean checkBoxValue)
+    {
+        if(checkBoxValue)
+        {
+            System.out.println("checkbox is checked");
+        }
+        else
+        {
+            System.out.println("checkbox is not checked");
+        }
+        return "redirect:/history";
     }
 }

@@ -17,6 +17,4 @@ public class ExchangeEntity {
     private @Column (name="currency_name")String currencyName;
     private @Column (name = "date_of_request") LocalDateTime dateOfRequest;
 
-
-
 }

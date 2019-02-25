@@ -26,22 +26,29 @@
         <td th:text="${log.getBidOfCurrency()}"></td>
         <td th:text="${log.getAskOfCurrency()}"></td>
         <td th:text="${log.getDateOfRequest()}"></td>
-        <td class="checkbox-inline"><input type="checkbox" value=""></td>
-        <td>
-            <a th:href="@{/history/delete/(id=${log.getId()})}" class="btn btn-danger">Delete</a></button>
+        <td><input type="checkbox" th:name="${checkBox}" th:value="${log.getId()}">
         </td>
+        <td>
+            <a th:href="@{/history/delete/(id=${log.getId()})}" class="btn btn-danger">Delete</a>
+        </td>
+        <td>
+
+        </td>
+
 
     </tr>
 </table>
 
-
-<!--<ul>-->
-    <!--<li th:each="log : ${logs}" th:text="${log}"> </li>-->
-
-<!--</ul>-->
-<a href="/">
-    <button class="btn btn-default btn-sm" type="button">Home Page</button>
-</a>
+<div style="text-align: center;">
+    <a href="/">
+        <button class="btn btn-default btn-sm align: center" type="button">Home Page</button>
+    </a>
+</div>
+<br>
+<form style="text-align: center"  action="/history/checkDelete" method="post" name="checkBox">
+        <button name="Submit">Submit</button>
+    </a>
+</form>
 
 </body>
 </html>

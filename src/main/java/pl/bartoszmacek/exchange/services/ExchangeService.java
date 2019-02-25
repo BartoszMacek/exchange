@@ -9,6 +9,7 @@ import pl.bartoszmacek.exchange.entities.ExchangeEntity;
 import pl.bartoszmacek.exchange.mappers.ExchangeDtoToExchangeEntity;
 import pl.bartoszmacek.exchange.repositories.ExchangeRepository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,12 +42,14 @@ public class ExchangeService {
     }
 
     public List<ExchangeEntity> getExchangeListWithoutElement(int idToDelete) {
-
         Optional<ExchangeEntity> optionalExchangeEntity = exchangeRepository.findById( idToDelete );
-
         return exchangeRepository.deleteById( optionalExchangeEntity.get().getId() );
-
     }
+
+
+
+
+
 
 
     @Bean
