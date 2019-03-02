@@ -16,7 +16,6 @@ import java.util.Optional;
 @Service
 public class ExchangeService {
 
-
     final private ExchangeRepository exchangeRepository;
 
     @Autowired
@@ -45,12 +44,6 @@ public class ExchangeService {
         Optional<ExchangeEntity> optionalExchangeEntity = exchangeRepository.findById( idToDelete );
         return exchangeRepository.deleteById( optionalExchangeEntity.get().getId() );
     }
-
-
-
-
-
-
 
     @Bean
     public RestTemplate getRestTemplate() {

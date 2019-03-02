@@ -9,7 +9,7 @@ import pl.bartoszmacek.exchange.services.ExchangeService;
 @Controller
 public class HistoryController {
 
-    final ExchangeService exchangeService;
+    private final ExchangeService exchangeService;
 
     @Autowired
     public HistoryController(ExchangeService exchangeService) {
@@ -37,11 +37,11 @@ public class HistoryController {
     {
         if(checkboxValue != null)
         {
-            System.out.println("checkbox is checked");
+            System.out.println(checkboxValue);
         }
         else
         {
-            System.out.println("checkbox is not checked");
+            System.out.println(checkboxValue);
         }
         return "redirect:/history";
     }

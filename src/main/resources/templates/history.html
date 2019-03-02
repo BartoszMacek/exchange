@@ -18,7 +18,6 @@
         <th>Select</th>
         <th>Delete</th>
 
-
     </tr>
 
     <tr th:if="${logs != null}" th:each="log : ${logs}">
@@ -29,31 +28,24 @@
         <!--todo-->
         <td>
             <form name="check" method="post" action="/history/checkDelete">
-                <input type="checkbox" name="toBeDelete" th:value="${log.getId()}"> Check to Delete
+                <input type="checkbox" name="checkboxName" th:value="${log.getId()}"> Check to Delete
+                    <input type="submit" name="submit">
             </form>
         </td>
         <td>
             <a th:href="@{/history/delete/(id=${log.getId()})}" class="btn btn-danger">Delete</a>
         </td>
-        <td>
-
-        </td>
-
-
     </tr>
 </table>
 
-<div style="text-align: center">
+<div style="text-align: center;">
     <a href="/">
         <button class="btn btn-default btn-sm align: center" type="button">Home Page</button>
     </a>
 </div>
 
 <br>
-<div th:if="${logs != null}" th:each="log : ${logs}" style="text-align: center">
-    <input th:if="${log.getId()}" id="toBeDelete" type="hidden">
 
-</div>
 
 
 </body>
