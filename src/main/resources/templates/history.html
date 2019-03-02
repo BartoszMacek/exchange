@@ -50,8 +50,9 @@
 </div>
 
 <br>
-<div style="text-align: center">
-    <input id="toBeDelete" type="hidden">
+<div th:if="${logs != null}" th:each="log : ${logs}" style="text-align: center">
+    <input th:if="${log.getId()}" id="toBeDelete" type="hidden">
+
 </div>
 
 
