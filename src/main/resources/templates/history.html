@@ -27,7 +27,10 @@
         <td th:text="${log.getAskOfCurrency()}"></td>
         <td th:text="${log.getDateOfRequest()}"></td>
         <!--todo-->
-        <td><input type="checkbox" th:name="${checkBox}" th:value="${log.getId()}">
+        <td>
+            <form name="check" method="post" action="/history/checkDelete">
+                <input type="checkbox" name="toBeDelete" th:value="${log.getId()}"> Check to Delete
+            </form>
         </td>
         <td>
             <a th:href="@{/history/delete/(id=${log.getId()})}" class="btn btn-danger">Delete</a>
@@ -40,16 +43,17 @@
     </tr>
 </table>
 
-<div style="text-align: center;">
+<div style="text-align: center">
     <a href="/">
         <button class="btn btn-default btn-sm align: center" type="button">Home Page</button>
     </a>
 </div>
+
 <br>
-<form style="text-align: center"  action="/history/checkDelete" method="post" name="checkBox">
-        <button name="Submit">Submit</button>
-    </a>
-</form>
+<div style="text-align: center">
+    <input id="toBeDelete" type="hidden">
+</div>
+
 
 </body>
 </html>

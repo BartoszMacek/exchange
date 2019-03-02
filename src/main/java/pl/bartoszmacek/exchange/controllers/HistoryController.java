@@ -30,10 +30,12 @@ public class HistoryController {
         return "redirect:/history";
     }
 
+
+
     @RequestMapping(value = "/history/checkDelete" , method = RequestMethod.POST)
-    public String deleteCheckedValues(@RequestParam(name = "", required = false) boolean checkBoxValue)
+    public String deleteCheckedValues(@RequestParam(name = "checkboxName", required = false) String checkboxValue)
     {
-        if(checkBoxValue)
+        if(checkboxValue != null)
         {
             System.out.println("checkbox is checked");
         }
