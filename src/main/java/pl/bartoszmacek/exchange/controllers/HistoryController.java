@@ -37,7 +37,7 @@ public class HistoryController {
     {
         if(checkboxValue != null)
         {
-            System.out.println(checkboxValue);
+            exchangeService.getExchangeListWithoutElement( Integer.parseInt( checkboxValue ) );
         }
         else
         {
