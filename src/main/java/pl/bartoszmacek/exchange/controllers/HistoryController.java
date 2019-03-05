@@ -22,7 +22,6 @@ public class HistoryController {
         return "history";
     }
 
-
     @RequestMapping(value = "/history/delete/", method = RequestMethod.GET)
     public String deleteRowFromDatabase(@RequestParam(name = "id") int idToDelete) {
         exchangeService.getExchangeListWithoutElement( idToDelete );
@@ -30,15 +29,13 @@ public class HistoryController {
         return "redirect:/history";
     }
 
-
     @RequestMapping(value = "/history/checkDelete", method = RequestMethod.POST)
     public String deleteCheckedValues(@RequestParam(name = "checkboxName", required = false) String checkboxValue) {
 
-            if (checkboxValue != null) {
-                exchangeService.getExchangeListWithoutElement( Integer.parseInt( checkboxValue ) );
-            } else {
-                System.out.println( "Nothing to delete" );
-
+        if (checkboxValue != null) {
+            exchangeService.getExchangeListWithoutElement( Integer.parseInt( checkboxValue ) );
+        } else {
+            System.out.println( "Nothing to delete" );
         }
         return "redirect:/history";
     }
