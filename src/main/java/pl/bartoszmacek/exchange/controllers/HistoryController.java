@@ -6,9 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.bartoszmacek.exchange.services.ExchangeService;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class HistoryController {
 
