@@ -29,7 +29,7 @@
         <td>
             <form name="check" method="post" action="/history/checkDelete">
                 <input type="checkbox" name="checkboxName" th:value="${log.getId()}"> Check to Delete
-                <a th:href=""
+                <a th:href="@{/history/delete/(checkboxValue=${log.getId()})}"></a>
                 <input type="submit" name="submit">
             </form>
         </td>
@@ -39,6 +39,10 @@
     </tr>
 </table>
 
+
+
+</div>
+
 <div style="text-align: center;">
     <a href="/">
         <button class="btn btn-default btn-sm align: center" type="button">Home Page</button>
@@ -46,7 +50,6 @@
 </div>
 
 <br>
-
 
 
 </body>

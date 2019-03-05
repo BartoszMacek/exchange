@@ -22,12 +22,10 @@ public class WelcomeController {
     public String index() {
         return "index";
     }
-
     @PostMapping("/")
     public String index(@RequestParam("currencyName") String currencyName,
                         Model model) {
         model.addAttribute( "currency", exchangeService.getCurrencyExchange( currencyName ) );
         return "index";
     }
-
 }

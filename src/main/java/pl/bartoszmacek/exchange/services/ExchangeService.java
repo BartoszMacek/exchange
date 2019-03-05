@@ -8,8 +8,6 @@ import pl.bartoszmacek.exchange.dtos.ExchangeDto;
 import pl.bartoszmacek.exchange.entities.ExchangeEntity;
 import pl.bartoszmacek.exchange.mappers.ExchangeDtoToExchangeEntity;
 import pl.bartoszmacek.exchange.repositories.ExchangeRepository;
-
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 

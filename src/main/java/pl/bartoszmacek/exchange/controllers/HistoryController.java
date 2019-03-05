@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.bartoszmacek.exchange.services.ExchangeService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class HistoryController {
 
@@ -31,17 +34,14 @@ public class HistoryController {
     }
 
 
+    @RequestMapping(value = "/history/checkDelete", method = RequestMethod.POST)
+    public String deleteCheckedValues(@RequestParam(name = "checkboxName", required = false) String checkboxValue) {
 
-    @RequestMapping(value = "/history/checkDelete" , method = RequestMethod.POST)
-    public String deleteCheckedValues(@RequestParam(name = "checkboxName", required = false) String checkboxValue)
-    {
-        if(checkboxValue != null)
-        {
-            exchangeService.getExchangeListWithoutElement( Integer.parseInt( checkboxValue ) );
-        }
-        else
-        {
-            System.out.println(checkboxValue);
+            if (checkboxValue != null) {
+                exchangeService.getExchangeListWithoutElement( Integer.parseInt( checkboxValue ) );
+            } else {
+                System.out.println( "Nothing to delete" );
+
         }
         return "redirect:/history";
     }
