@@ -8,8 +8,9 @@ import pl.bartoszmacek.exchange.dtos.ExchangeDto;
 import pl.bartoszmacek.exchange.entities.ExchangeEntity;
 import pl.bartoszmacek.exchange.mappers.ExchangeDtoToExchangeEntity;
 import pl.bartoszmacek.exchange.repositories.ExchangeRepository;
+
+import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ExchangeService {
@@ -38,10 +39,10 @@ public class ExchangeService {
         return (List<ExchangeEntity>) exchangeRepository.findAll();
     }
 
-    public List<ExchangeEntity> getExchangeListWithoutElement(int idToDelete) {
-        Optional<ExchangeEntity> optionalExchangeEntity = exchangeRepository.findById( idToDelete );
-        return exchangeRepository.deleteById( optionalExchangeEntity.get().getId() );
+    public void toDelete(int id) {
+        exchangeRepository.deleteById( id );
     }
+
 
     @Bean
     public RestTemplate getRestTemplate() {

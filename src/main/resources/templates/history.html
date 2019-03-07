@@ -38,10 +38,15 @@
         </td>
     </tr>
 </table>
-
-
-
 </div>
+
+<div style="text-align: center">
+    <a href="/history/checkDelete">
+        <button th:each="log : ${logs}" th:if="log.checkbox == true" class="btn btn-danger" type="button">Delete Checked
+        </button>
+    </a>
+</div>
+
 
 <div style="text-align: center;">
     <a href="/">

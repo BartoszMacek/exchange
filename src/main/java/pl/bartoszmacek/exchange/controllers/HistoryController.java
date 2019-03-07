@@ -5,15 +5,28 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.bartoszmacek.exchange.services.ExchangeService;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class HistoryController {
 
     private final ExchangeService exchangeService;
+    private List<Integer> checked = new ArrayList<>();
 
     @Autowired
     public HistoryController(ExchangeService exchangeService) {
         this.exchangeService = exchangeService;
+    }
+
+
+    @GetMapping("/ifcheck")
+    public void ifCheck(@RequestParam(value = "check") int id) {
+        checked.add(id);
+    }
+    @GetMapping("/todelete")
+    public void toDelete() {
+        checked.forEach(exchangeService::toDelete);
     }
 
     @GetMapping("/history")
@@ -24,7 +37,7 @@ public class HistoryController {
 
     @RequestMapping(value = "/history/delete/", method = RequestMethod.GET)
     public String deleteRowFromDatabase(@RequestParam(name = "id") int idToDelete) {
-        exchangeService.getExchangeListWithoutElement( idToDelete );
+        exchangeService.toDelete( idToDelete );
 
         return "redirect:/history";
     }
@@ -33,7 +46,7 @@ public class HistoryController {
     public String deleteCheckedValues(@RequestParam(name = "checkboxName", required = false) String checkboxValue) {
 
         if (checkboxValue != null) {
-            exchangeService.getExchangeListWithoutElement( Integer.parseInt( checkboxValue ) );
+            exchangeService.toDelete( Integer.parseInt( checkboxValue ) );
         } else {
             System.out.println( "Nothing to delete" );
         }
