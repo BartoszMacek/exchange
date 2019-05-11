@@ -9,7 +9,6 @@ import pl.bartoszmacek.exchange.entities.ExchangeEntity;
 import pl.bartoszmacek.exchange.mappers.ExchangeDtoToExchangeEntity;
 import pl.bartoszmacek.exchange.repositories.ExchangeRepository;
 
-import java.util.Iterator;
 import java.util.List;
 
 @Service

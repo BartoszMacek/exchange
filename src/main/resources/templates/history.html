@@ -1,61 +1,61 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<link th:href="@{/Bootstrap/css/bootstrap.css}" rel="stylesheet" type="text/css" }>
-<link th:href="@{/style.css}" rel="stylesheet" type="text/css" media="all">
-<script th:src="@{/Bootstrap/js/bootstrap.js}"></script>
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
+<!--<link th:href="@{/Bootstrap/css/bootstrap.css}" rel="stylesheet" type="text/css" }>-->
+<!--<link th:href="@{/style.css}" rel="stylesheet" type="text/css" media="all">-->
+<!--<script th:src="@{/Bootstrap/js/bootstrap.js}"></script>-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
 
-<table class="table table-striped">
-    <tr>
-        <th>Currency</th>
-        <th>Buy</th>
-        <th>Sell</th>
-        <th>Date of request</th>
-        <th>Select</th>
-        <th>Delete</th>
+<!--<table class="table table-striped">-->
+    <!--<tr>-->
+        <!--<th>Currency</th>-->
+        <!--<th>Buy</th>-->
+        <!--<th>Sell</th>-->
+        <!--<th>Date of request</th>-->
+        <!--<th>Select</th>-->
+        <!--<th>Delete</th>-->
 
-    </tr>
+    <!--</tr>-->
 
-    <tr th:if="${logs != null}" th:each="log : ${logs}">
-        <td th:text="${log.getCurrencyName()}"></td>
-        <td th:text="${log.getBidOfCurrency()}"></td>
-        <td th:text="${log.getAskOfCurrency()}"></td>
-        <td th:text="${log.getDateOfRequest()}"></td>
-        <!--todo-->
-        <td>
-            <form name="check" method="post" action="/history/checkDelete">
-                <input type="checkbox" name="checkboxName" th:value="${log.getId()}"> Check to Delete
-                <a th:href="@{/history/delete/(checkboxValue=${log.getId()})}"></a>
-                <input type="submit" name="submit">
-            </form>
-        </td>
-        <td>
-            <a th:href="@{/history/delete/(id=${log.getId()})}" class="btn btn-danger">Delete</a>
-        </td>
-    </tr>
-</table>
-</div>
+    <!--<tr th:if="${logs != null}" th:each="log : ${logs}">-->
+        <!--<td th:text="${log.getCurrencyName()}"></td>-->
+        <!--<td th:text="${log.getBidOfCurrency()}"></td>-->
+        <!--<td th:text="${log.getAskOfCurrency()}"></td>-->
+        <!--<td th:text="${log.getDateOfRequest()}"></td>-->
+        <!--&lt;!&ndash;todo&ndash;&gt;-->
+        <!--<td>-->
+            <!--<form name="check" method="post" action="/history/checkDelete">-->
+                <!--<input type="checkbox" name="checkboxName" th:value="${log.getId()}"> Check to Delete-->
+                <!--<a th:href="@{/history/delete/(checkboxValue=${log.getId()})}"></a>-->
+                <!--<input type="submit" name="submit">-->
+            <!--</form>-->
+        <!--</td>-->
+        <!--<td>-->
+            <!--<a th:href="@{/history/delete/(id=${log.getId()})}" class="btn btn-danger">Delete</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</table>-->
+<!--</div>-->
 
-<div style="text-align: center">
-    <a href="/history/checkDelete">
-        <button th:each="log : ${logs}" th:if="log.checkbox == true" class="btn btn-danger" type="button">Delete Checked
-        </button>
-    </a>
-</div>
-
-
-<div style="text-align: center;">
-    <a href="/">
-        <button class="btn btn-default btn-sm align: center" type="button">Home Page</button>
-    </a>
-</div>
-
-<br>
+<!--<div style="text-align: center">-->
+    <!--<a href="/history/checkDelete">-->
+        <!--<button th:each="log : ${logs}" th:if="log.checkbox == true" class="btn btn-danger" type="button">Delete Checked-->
+        <!--</button>-->
+    <!--</a>-->
+<!--</div>-->
 
 
-</body>
-</html>
+<!--<div style="text-align: center;">-->
+    <!--<a href="/">-->
+        <!--<button class="btn btn-default btn-sm align: center" type="button">Home Page</button>-->
+    <!--</a>-->
+<!--</div>-->
+
+<!--<br>-->
+
+
+<!--</body>-->
+<!--</html>-->

@@ -9,6 +9,7 @@ import java.util.List;
 public interface ExchangeRepository extends CrudRepository <ExchangeEntity, Integer> {
 
     List<ExchangeEntity> deleteById(int idToDelete);
+    List<ExchangeEntity> findAll();
 
 //    @Query (value = "SELECT COUNT(currency_name)as city_counter, currency_name FROM `javaex`.`exchange_log` GROUP BY currency_name ", nativeQuery = true)
 //    HashMap<ExchangeEntity, ExchangeEntity> findUniqueCurrencyAndCount ();
