@@ -1,31 +1,27 @@
 package pl.bartoszmacek.exchange.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.bartoszmacek.exchange.entities.ExchangeEntity;
 import pl.bartoszmacek.exchange.repositories.ExchangeRepository;
-import pl.bartoszmacek.exchange.services.ExchangeService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 public class HistoryController {
 
 
-   @Autowired
+    @Autowired
     public ExchangeRepository exchangeRepository;
 
     public HistoryController(ExchangeRepository exchangeRepository) {
         this.exchangeRepository = exchangeRepository;
     }
 
-    @GetMapping ("history")
-    public List<ExchangeEntity> findAll () {
-        System.out.println(exchangeRepository.findAll());
-        return exchangeRepository.findAll();
+    @GetMapping("/history")
+    public List<ExchangeEntity> findAll() {
+        return new ArrayList<>( exchangeRepository.findAll() );
     }
 
 //    private final ExchangeService exchangeService;

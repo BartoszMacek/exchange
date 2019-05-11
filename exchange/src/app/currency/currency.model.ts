@@ -1,8 +1,8 @@
 export class Currency {
 
   bidOfCurrency: number;
-  sellOfCurrency: number;
-  nameOfCurrency: string;
-
+  askOfCurrency: number;
+  currencyName: string;
+  dateOfRequest: string;
 
 }

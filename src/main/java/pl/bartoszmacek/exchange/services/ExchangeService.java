@@ -9,7 +9,6 @@ import pl.bartoszmacek.exchange.entities.ExchangeEntity;
 import pl.bartoszmacek.exchange.mappers.ExchangeDtoToExchangeEntity;
 import pl.bartoszmacek.exchange.repositories.ExchangeRepository;
 
-import java.util.List;
 
 @Service
 public class ExchangeService {
@@ -34,9 +33,16 @@ public class ExchangeService {
         return exchangeDto;
     }
 
-    public List<ExchangeEntity> getExchangeLog() {
-        return (List<ExchangeEntity>) exchangeRepository.findAll();
-    }
+//    public ExchangeEntity getCurrencyExchange(String currencyName) {
+//        RestTemplate restTemplate = getRestTemplate();
+//        ExchangeEntity exchangeEntity = restTemplate.getForObject(
+//                "http://api.nbp.pl/api/exchangerates/rates/c/" + currencyName + "?format=json", ExchangeEntity.class );
+//        return exchangeEntity;
+//    }
+
+//    public List<ExchangeEntity> getExchangeLog() {
+//        return (List<ExchangeEntity>) exchangeRepository.findAll();
+//    }
 
     public void toDelete(int id) {
         exchangeRepository.deleteById( id );
