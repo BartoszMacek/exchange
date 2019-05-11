@@ -1,0 +1,16 @@
+<div style="width: 700px; margin-left: 500px;">
+<table class="table table-striped">
+  <tr>
+    <th>Currency</th>
+    <th>Buy</th>
+    <th>Sell</th>
+    <th style="width: 300px;">Date of request</th>
+  </tr>
+  <tr *ngFor="let currency of history">
+    <td>{{currency.currencyName}}</td>
+    <td>{{currency.bidOfCurrency}}</td>
+    <td>{{currency.askOfCurrency}}</td>
+    <td style="width: 300px;">{{currency.dateOfRequest}}</td>
+  </tr>
+</table>
+</div>

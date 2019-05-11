@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Available currencies to check</h1>
+    <p>In our app you can check following currencies:</p>
+    <p>USD, AUD, CAD, EUR, HUF, CHF, GBP, JPY, CZK, DKK, NOK, SEK, XDR</p>
+  </div>
+</div>
+
+
+<div style="text-align: center;">
+  <div class="row">
+    <div style="align-self: center" class="col-xs-10">
+      <div class="form-group">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+          <select
+            id="currencyName"
+            class="form-control"
+            ngModel
+            name="currencyName">
+            <option value="usd">USD</option>
+            <option value="aud">AUD</option>
+            <option value="cad">CAD</option>
+            <option value="eur">EUR</option>
+            <option value="huf">HUF</option>
+            <option value="chf">CHF</option>
+            <option value="gbp">GBP</option>
+            <option value="jpy">JPY</option>
+            <option value="czk">CZK</option>
+            <option value="dkk">DKK</option>
+            <option value="nok">NOK</option>
+            <option value="sek">SEK</option>
+            <option value="xdr">XDR</option>
+          </select>
+          <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <br>
+  <hr>
+
+
+  <button class="btn btn-success" type="button" (click)="onHistory()">History</button>
+</div>
